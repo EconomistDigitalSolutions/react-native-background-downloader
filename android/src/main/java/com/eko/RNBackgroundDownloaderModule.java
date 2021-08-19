@@ -24,6 +24,7 @@ import com.tonyodev.fetch2.Request;
 import com.tonyodev.fetch2.Status;
 import com.tonyodev.fetch2core.DownloadBlock;
 import com.tonyodev.fetch2core.Func;
+import com.tonyodev.fetch2okhttp.OkHttpDownloader;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -39,6 +40,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nullable;
+
+import okhttp3.OkHttpClient;
 
 public class RNBackgroundDownloaderModule extends ReactContextBaseJavaModule implements FetchListener {
 
@@ -77,9 +80,12 @@ public class RNBackgroundDownloaderModule extends ReactContextBaseJavaModule imp
   public RNBackgroundDownloaderModule(ReactApplicationContext reactContext) {
     super(reactContext);
 
+    OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+
     loadConfigMap();
     FetchConfiguration fetchConfiguration = new FetchConfiguration.Builder(this.getReactApplicationContext())
             .setDownloadConcurrentLimit(20) // Set to the same value as your app's DOWNLOAD_CONCURRENCY_LIMIT
+            .setHttpDownloader(new OkHttpDownloader(okHttpClient))
             .setNamespace("RNBackgroundDownloader")
             .build();
     fetch = Fetch.Impl.getInstance(fetchConfiguration);
