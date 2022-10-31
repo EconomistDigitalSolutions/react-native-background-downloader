@@ -23,7 +23,7 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     // This dependency is published on Jitpack
     api "com.github.tonyofrancis.Fetch:xfetch2:3.1.6"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp_url_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "com.squareup.okhttp3:okhttp:3.12.12"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:3.12.12"
 }
