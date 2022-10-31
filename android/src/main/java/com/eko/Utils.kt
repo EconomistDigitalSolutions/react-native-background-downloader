@@ -1,6 +1,6 @@
 @file:JvmName("OkHttpUtils")
 
-package com.tonyodev.fetch2okhttp
+package com.eko
 
 import com.tonyodev.fetch2core.getDefaultCookieManager
 import okhttp3.CookieJar
